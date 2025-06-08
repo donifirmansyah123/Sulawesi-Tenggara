@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Lisu+Bosa:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #0a0d14;
+  --primary-color-light: #20242f;
+  --secondary-color: #f49e09;
+  --extra-light: rgba(255, 255, 255, 0.5);
+  --white: #ffffff;
+  --max-width: 1200px;
+  --header-font: "Lisu Bosa", serif;
+}
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+  color: var(--white);
+  background-color: var(--primary-color);
+}
+
+/* ===== HEADER & NAVBAR ===== */
+
+nav {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid var(--extra-light);
+}
+
+.nav__bar {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 1.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Logo */
+.nav__logo a {
+  font-family: var(--header-font);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* Daftar link di navbar – selalu horizontal */
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  overflow-x: auto;              /* Scroll jika terlalu panjang */
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;           /* Pastikan tidak wrap ke baris baru */
+}
+
+/* Styling link */
+.nav__links .link a {
+  color: var(--white);
+  font-weight: 500;
+  padding: 0.75rem 5px;
+  transition: color 0.3s, border-bottom 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav__links .link a:hover,
+.nav__links .link a.active {
+  color: var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Sembunyikan tombol toggle (hamburger) selalu */
+.nav__toggle {
+  display: none !important;
+}
+
+/* Jika ada ikon search, beri padding agar konsisten */
+.nav__links .link span {
+  padding: 0.75rem 0;
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* ===== ABOUT SECTION ===== */
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.section__header {
+  font-family: var(--header-font);
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.section__subheader {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.about__flex {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.about__card {
+  background-color: var(--primary-color-light);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  flex: 1 1 150px;
+}
+
+.about__card h4 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  font-family: var(--header-font);
+}
+
+.about__card p {
+  font-size: 1rem;
+}
+
+.about__image {
+  text-align: center;
+}
+
+.about__image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+/* ===== FOOTER ===== */
+.footer__bar {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  background-color: var(--primary-color-light);
+  border-top: 1px solid var(--extra-light);
+}
+
+/* ===== RESPONSIVE UNTUK ABOUT SECTION ===== */
+@media (max-width: 600px) {
+  .section__header {
+    font-size: 2rem;
+  }
+  .section__subheader {
+    font-size: 0.95rem;
+  }
+  .about__flex {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+

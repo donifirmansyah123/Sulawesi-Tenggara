@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Destinasi Wisata – Pariwisata Sulteng</title>
+
+  <!-- INTERNAL CSS KHUSUS HALAMAN DESTINASI -->
+  <style>
+    /* ===== IMPORT FONT ===== */
+    @import url("https://fonts.googleapis.com/css2?family=Lisu+Bosa:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap");
+
+    /* ===== VARIABEL WARNA ===== */
+    :root {
+      --primary-color: #0a0d14;
+      --primary-color-light: #20242f;
+      --secondary-color: #f49e09;
+      --extra-light: rgba(255, 255, 255, 0.5);
+      --white: #ffffff;
+      --max-width: 1200px;
+      --header-font: "Lisu Bosa", serif;
+    }
+
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html,
+    body {
+      scroll-behavior: smooth;
+      font-family: "Poppins", sans-serif;
+      color: var(--white);
+      background-color: var(--primary-color);
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-bottom: 1px solid var(--extra-light);
+    }
+    .nav__bar {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 1.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .nav__logo a {
+      font-family: var(--header-font);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    .nav__links .link a {
+      color: var(--white);
+      font-weight: 500;
+      padding: 0.75rem 5px;
+      transition: color 0.3s, border-bottom 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .nav__links .link a:hover,
+    .nav__links .link a.active {
+      color: var(--secondary-color);
+      border-bottom: 2px solid var(--secondary-color);
+    }
+    /* Sembunyikan tombol hamburger sepenuhnya (tidak dipakai di halaman ini) */
+    .nav__toggle {
+      display: none !important;
+    }
+    .nav__links .link span {
+      padding: 0.75rem 0;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    /* ===== SECTION DESTINASI ===== */
+    .section__container {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    .section__header {
+      font-family: var(--header-font);
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .section__subheader {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: var(--extra-light);
+    }
+    .destinasi__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .destinasi__card {
+      background-color: var(--primary-color-light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+      color: var(--white);
+      text-align: center;
+    }
+    .destinasi__card:hover {
+      transform: translateY(-5px);
+    }
+    .destinasi__card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .destinasi__card h3 {
+      font-size: 1.25rem;
+      margin: 1rem 0 0.5rem;
+    }
+    .destinasi__card p {
+      font-size: 0.95rem;
+      padding: 0 1rem 1rem;
+      color: var(--extra-light);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer__bar {
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      background-color: var(--primary-color-light);
+      border-top: 1px solid var(--extra-light);
+    }
+
+    /* ===== RESPONSIVE UNTUK DESTINASI GRID ===== */
+    @media (max-width: 900px) {
+      .destinasi__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .destinasi__grid {
+        grid-template-columns: 1fr;
+      }
+      .section__header {
+        font-size: 2rem;
+      }
+      .section__subheader {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <nav>
+      <div class="nav__bar">
+        <div class="nav__logo"><a href="#">Pariwisata Sulteng</a></div>
+        <ul class="nav__links">
+          <li class="link"><a href="index.html">Home</a></li>
+          <li class="link"><a href="about.html">About</a></li>
+          <li class="link"><a href="wisata.html" class="active">Destinasi</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SECTION DESTINASI -->
+  <section class="section__container destinasi__section">
+    <h2 class="section__header">Rekomendasi Wisata Sulawesi Tengah</h2>
+    <p class="section__subheader">
+      Temukan berbagai tempat wisata menarik dan eksotis yang wajib Anda kunjungi di Sulawesi Tengah.
+    </p>
+
+    <div class="destinasi__grid">
+      <!-- Destinasi 1 -->
+      <div onclick="window.location.href='wakatobi.html'" class="destinasi__card">
+        <img src="https://backpackerjakarta.com/wp-content/uploads/2017/07/Wakatobi-Dive-Resort_photo-by-Didi-Lotze.jpg" alt="Pantai Wakatobi" alt="Wakatobi" />
+        <h3>Wakatobi</h3>
+        <p>Surga bawah laut yang terkenal dengan keindahan terumbu karangnya.</p>
+      </div>
+
+      <!-- Destinasi 2 -->
+      <div onclick="window.location.href='morano.html'" class="destinasi__card">
+        <img src="https://pikiransultra.com/wp-content/uploads/2021/11/images-6.jpg" alt="Pulau Bokori" />
+        <h3>Air terjun Morano</h3>
+        <p>Air terjun bertingkat setinggi 100 meter, dikelilingi hutan lebat dan kolam alami yang jernih.</p>
+      </div>
+
+      <!-- Destinasi 3 -->
+      <div onclick="window.location.href='labengki.html'" class="destinasi__card">
+        <img src="https://asset.kompas.com/crops/uGNdES_sTtmS4gl5zaVJMDoyPR0=/0x0:1000x667/750x500/data/photo/2023/08/24/64e7355e3daa5.jpg" />
+        <h3>Pulau Labengki</h3>
+        <p>Pulau kecil dengan pantai berpasir putih dan air laut bening, ideal untuk snorkeling dan berlayar.</p>
+      </div>
+
+      <!-- Destinasi 4 -->
+      <div onclick="window.location.href='keraton.html'"class="destinasi__card">
+        <img src="https://picture.triptrus.com/image/2014/06/benteng-keraton-buton.jpeg" alt="Pantai Torobulu" />
+        <h3>Benteng Keraton Buton</h3>
+        <p>Salah satu benteng tertua dan terbesar di dunia, bekas istana kesultanan, menawarkan panorama kota dan laut.</p>
+      </div>
+
+      <!-- Destinasi 5 -->
+      <div onclick="window.location.href='meleura.html'" class="destinasi__card">
+        <img src="https://cdn.idntimes.com/content-images/community/2018/09/99d2350c01fde6f0a0937f72ad317a68.jpg" alt="Pantai Batu Gong" />
+        <h3>Pantai Meleura</h3>
+        <p>Pantai Meleura memiliki view istimewa dengan laut berwarna biru toska.</p>
+      </div>
+
+      <!-- Destinasi 6 -->
+      <div onclick="window.location.href='danau.html'" class="destinasi__card">
+        <img src="https://cdn.idntimes.com/content-images/community/2018/09/35ed55b0cf9f2d5199be8597d9ef7c84.jpg" alt="Pulau Labengki" />
+        <h3>Danau Napabale</h3>
+        <p>Danau Napabale memiliki pesona unik lain daripada yang lain. Di area danau, ada terowongan cukup panjang yang menyambungkan danau dengan pantai Napabale</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer__bar">
+      © 2025 Pariwisata Sulteng. Semua Hak Dilindungi.
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>lainnya Tentang SulTeng</title>
+
+  <!-- INTERNAL CSS UNTUK HALAMAN BUDAYA -->
+  <style>
+    /* ===== IMPORT FONT ===== */
+    @import url("https://fonts.googleapis.com/css2?family=Lisu+Bosa:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap");
+
+    /* ===== VARIABEL WARNA ===== */
+    :root {
+      --primary-color: #0a0d14;
+      --primary-color-light: #20242f;
+      --secondary-color: #f49e09;
+      --extra-light: rgba(255, 255, 255, 0.5);
+      --white: #ffffff;
+      --max-width: 1200px;
+      --header-font: "Lisu Bosa", serif;
+    }
+
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      scroll-behavior: smooth;
+      font-family: "Poppins", sans-serif;
+      color: var(--white);
+      background-color: var(--primary-color);
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-bottom: 1px solid var(--extra-light);
+    }
+    .nav__bar {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 1.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .nav__logo a {
+      font-family: var(--header-font);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    .nav__links .link a {
+      color: var(--white);
+      font-weight: 500;
+      padding: 0.75rem 5px;
+      transition: color 0.3s, border-bottom 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .nav__links .link a:hover,
+    .nav__links .link a.active {
+      color: var(--secondary-color);
+      border-bottom: 2px solid var(--secondary-color);
+    }
+    .nav__toggle {
+      display: none !important;
+    }
+    .nav__links .link span {
+      padding: 0.75rem 0;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    /* ===== SECTION BUDAYA ===== */
+    .section__container {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    .section__header {
+      font-family: var(--header-font);
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .section__subheader {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: var(--extra-light);
+    }
+
+    /* Kontainer untuk setiap budaya */
+    .budaya__item {
+      margin-bottom: 4rem;
+    }
+    .budaya__item h3 {
+      font-family: var(--header-font);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    /* Gambar di bawah judul */
+    .budaya__image {
+      width: 60%;
+      margin: 0 auto 1.5rem;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .budaya__image img {
+      width: 100%;
+      display: block;
+    }
+
+    .budaya__item p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0 auto 1.5rem;
+      max-width: 800px;
+      color: var(--white);
+      text-align: justify;
+    }
+
+     .youtube-container {
+    width: 640px;               /* Lebar desktop */
+    height: 360px;              /* Tinggi desktop (rasio 16:9) */
+    margin: 0 auto 1.5rem;      /* Otomatis terpusat secara horizontal */
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 80px;
+  }
+  .youtube-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;                /* Mengisi 100% lebar kontainer */
+    height: 100%;               /* Mengisi 100% tinggi kontainer */
+    border: none;
+  }
+
+    /* ===== FOOTER ===== */
+    .footer__bar {
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      background-color: var(--primary-color-light);
+      border-top: 1px solid var(--extra-light);
+      margin-top: 2rem;
+    }
+
+    .ambasing {
+        margin-top: 70px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+    .youtube-container {
+      width: 480px;
+      height: 270px;
+    }
+  }
+    @media (max-width: 600px) {
+    .youtube-container {
+      width: 320px;
+      height: 180px;
+    }
+
+    .budaya__image {
+        width: 400px;
+    }
+  }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav>
+      <div class="nav__bar">
+        <div class="nav__logo"><a href="#">Pariwisata Sulteng</a></div>
+        <ul class="nav__links">
+          <li class="link"><a href="index.html">Home</a></li>
+          <li class="link"><a href="about.html">About</a></li>
+          <li class="link"><a href="jurnal.html">Destinasi</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SECTION BUDAYA -->
+  <section class="section__container">
+    <h2 class="section__header">Lainnya Tentang Sulawesi Tenggara</h2>
+    <p class="section__subheader">
+      Berikut adalah informasi lainnya tentang provinsi sulawesi tenggara. mulai dari rumah adat, pakaian adat, dan lainnya.
+    </p>
+
+    <!-- Budaya Buton -->
+    <div class="budaya__item">
+      <h3>Rumah Adat Mekongga</h3>
+      <div class="budaya__image">
+        <img src="https://cnc-magazine.oramiland.com/parenting/images/rumah-adat-sulawesi-barat-mekongg.width-800.format-webp.webp" alt="Benteng Keraton Buton" />
+      </div>
+      <p>
+        Rumah adat Mekongga merupakan rumah adat suku Mekongga. Dikutip dari Digital Library Unismuh, rumah adat ini dipublikasikan dari peninggalan Bokeo Latambaga.
+
+Rumah ini berbentuk persegi empat dan memiliki dua tiang penyangga. Pada bagian badan Rumah adat Mekongga memiliki ornamen yang berwarna-warni yang dibuat oleh penduduk asli Mekongga.
+
+      </p>
+      
+    </div>
+
+    <!-- Budaya Muna -->
+    <div class="budaya__item">
+      <h3>Pakaian Adat Suku Tolaki</h3>
+      <div class="budaya__image">
+        <img src="https://akcdn.detik.net.id/community/media/visual/2022/08/17/jokowi-dan-iriana-saat-upacara-hut-ke-77-ri-1_169.jpeg?w=700&q=90" alt="Tari Karia Muna" />
+      </div>
+      <p>
+        Pakaian adat adalah salah satu dari aspek budaya yang dinilai penting. Pakaian adat memiliki fungsi dan kegunaannya masing-masing, bergantung pada suku dan daerah asalnya. Namun, pada dasarnya, pakaian adat digunakan sebagai representasi masyarakat daerah ketika menjalankan sebuah upacara adat. Selain itu, pakaian adat juga digunakan sebagai penanda status sosial.
+      </p>
+      
+    </div>
+
+    <!-- Budaya Tolaki -->
+    <div class="budaya__item">
+      <h3>upacara adat Paduai Bido</h3>
+      <div class="budaya__image">
+        <img src="https://ik.imagekit.io/tvlk/blog/2024/03/shutterstock_2150338583.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2" alt="Tari Lulo Tolaki" />
+      </div>
+      <p>
+        pacara Paduai Bido adalah upacara adat yang dilakukan oleh masyarakat Bajo, Sulawesi Tenggara yang memiliki arti penurunan perahu ke laut. Upacara ini bertujuan untuk memohon perlindungan kepada dewa laut dan mahluk halus, agar para nelayan terhindar dari musibah dan malapetaka saat melaut.
+      </p>
+      
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer__bar">
+      © 2025 Pariwisata Sulteng. Semua Hak Dilindungi.
+    </div>
+  </footer>
+</body>
+</html>

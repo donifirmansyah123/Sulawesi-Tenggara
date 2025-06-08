@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Hotel – Pariwisata Sulteng</title>
+
+  <style>
+    /* ===== IMPORT FONT ===== */
+    @import url("https://fonts.googleapis.com/css2?family=Lisu+Bosa:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap");
+
+    /* ===== VARIABEL WARNA ===== */
+    :root {
+      --primary-color: #0a0d14;
+      --primary-light: #20242f;
+      --secondary-color: #f49e09;
+      --extra-light: rgba(255,255,255,0.5);
+      --white: #ffffff;
+      --max-width: 1200px;
+      --header-font: "Lisu Bosa", serif;
+    }
+
+    /* ===== RESET ===== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body {
+      font-family:"Poppins",sans-serif;
+      color:var(--white);
+      background-color:var(--primary-color);
+      scroll-behavior:smooth;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      background: rgba(0,0,0,0.5);
+      border-bottom:1px solid var(--extra-light);
+    }
+    .nav__bar {
+      max-width:var(--max-width);
+      margin:auto;
+      padding:1.5rem 1rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:2rem;
+    }
+    .nav__logo a {
+      font-family:var(--header-font);
+      font-size:1.4rem;
+      font-weight:800;
+      color:var(--white);
+      text-decoration:none;
+    }
+    .nav__links {
+      list-style:none;
+      display:flex;
+      gap:2rem;
+      overflow-x:auto;
+      white-space:nowrap;
+    }
+
+    /* Sembunyikan scrollbar di WebKit (Chrome/Safari) */
+.nav__links::-webkit-scrollbar {
+  display: none;
+}
+
+/* Sembunyikan scrollbar di Firefox */
+.nav__links {
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE 10+ */
+}
+    .nav__links a {
+      color:var(--white);
+      font-weight:500;
+      padding:0.75rem 5px;
+      text-decoration:none;
+      transition:color 0.3s,border-bottom 0.3s;
+    }
+    .nav__links a:hover,
+    .nav__links .active {
+      color:var(--secondary-color);
+      border-bottom:2px solid var(--secondary-color);
+    }
+    .nav__toggle { display:none!important; }
+
+    /* ===== SECTION HOTEL ===== */
+    .section__container {
+      max-width:var(--max-width);
+      margin:auto;
+      padding:2rem 1rem;
+    }
+    .section__header {
+      font-family:var(--header-font);
+      text-align:center;
+      font-size:2.5rem;
+      margin-bottom:1rem;
+    }
+
+    .hotel__grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:2rem;
+      align-items:start;
+    }
+    .hotel__image img {
+      width:100%;
+      border-radius:8px;
+      display:block;
+    }
+    .hotel__info {
+      color:var(--white);
+    }
+    .hotel__info h3 {
+      font-family:var(--header-font);
+      font-size:2rem;
+      margin-bottom:0.75rem;
+    }
+    .hotel__info p {
+      line-height:1.6;
+      margin-bottom:1rem;
+    }
+    .map-container {
+      width:100%;
+      height:300px;
+      margin:1.5rem 0;
+      border:2px solid var(--extra-light);
+      border-radius:8px;
+      overflow:hidden;
+    }
+    .map-container iframe {
+      width:100%; height:100%; border:none;
+    }
+    .btn-book {
+      display:inline-block;
+      padding:0.75rem 1.5rem;
+      background:var(--secondary-color);
+      color:var(--primary-color);
+      border:none;
+      border-radius:4px;
+      cursor:pointer;
+      font-weight:500;
+      transition:background 0.3s;
+    }
+    .btn-book:hover {
+      background:#d48c07;
+    }
+
+    /* ===== MODAL ===== */
+    .modal {
+      position:fixed;
+      top:0; left:0; right:0; bottom:0;
+      background:rgba(0,0,0,0.7);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:1000;
+    }
+    .modal.active { display:flex; }
+    .modal-content {
+      background:var(--primary-light);
+      padding:2rem;
+      border-radius:8px;
+      width:90%;
+      max-width:400px;
+      position:relative;
+    }
+    .modal-content h4 {
+      font-family:var(--header-font);
+      margin-bottom:1rem;
+    }
+    .modal-content label {
+      display:block;
+      margin:0.5rem 0 0.25rem;
+      color:var(--white);
+    }
+    .modal-content input {
+      width:100%;
+      padding:0.5rem;
+      border:none;
+      border-radius:4px;
+      margin-bottom:1rem;
+    }
+    .modal-content .btn-submit {
+      width:100%;
+      padding:0.75rem;
+      background:var(--secondary-color);
+      border:none;
+      border-radius:4px;
+      cursor:pointer;
+      color:var(--primary-color);
+      font-weight:500;
+    }
+    .modal-content .btn-close {
+      position:absolute;
+      top:0.5rem; right:0.5rem;
+      background:none;
+      border:none;
+      font-size:1.5rem;
+      color:var(--white);
+      cursor:pointer;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer__bar {
+      text-align:center;
+      padding:1rem 0;
+      background:var(--primary-light);
+      border-top:1px solid var(--extra-light);
+      margin-top:2rem;
+      font-size:0.9rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:900px){
+      .hotel__grid { grid-template-columns:1fr; }
+      .map-container { height:200px; }
+    }
+    @media(max-width:600px){
+      .section__header { font-size:2rem; }
+      .map-container { height:180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav>
+      <div class="nav__bar">
+        <div class="nav__logo"><a href="#">Pariwisata Sulteng</a></div>
+        <ul class="nav__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="jurnal.html">Destinasi</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SECTION HOTEL -->
+  <section class="section__container">
+    
+    <div class="hotel__grid">
+      <div class="hotel__image">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/290996123.jpg?k=eeeb2f23ee9cadb53d5dfa7d14bedf529acaa5f72002b4186ed20716b8d4d014&o=&hp=1" alt="Hotel Sulteng View">
+      </div>
+      <div class="hotel__info">
+        <h3>d'prima wakatobi dive resort</h3>
+        <p>
+          d'prima wakatobi dive resort merupakan resort di Wakatobi yang memiliki konsep bangunan serba kayu yang bergaya rumah panggung. Tempat ini berdiri di tepi pantai yang dikelilingi pohon-pohon rindang dengan view laut, pastinya akan membuat anda betah untuk malam di sini.
+        </p>
+        <h4>Rp.700.000/malam</h4>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31783.004981034595!2d123.63539224258018!3d-5.282094375244796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2da12d58953733cb%3A0x22d96574a6c1cd69!2sd&#39;prima%20wakatobi%20dive%20resort!5e0!3m2!1sen!2sid!4v1749307579267!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
+            allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+        <button class="btn-book" id="bookingBtn">Booking Sekarang</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL BOOKING -->
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <button class="btn-close" id="closeModal">&times;</button>
+      <h4>Form Booking</h4>
+      <form id="bookingForm">
+        <label for="name">Nama Lengkap</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="checkin">Check-in</label>
+        <input type="date" id="checkin" name="checkin" required>
+        <label for="checkout">Check-out</label>
+        <input type="date" id="checkout" name="checkout" required>
+        <button type="submit" class="btn-submit">Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer__bar">
+      © 2025 Pariwisata Sulteng. Semua Hak Dilindungi.
+    </div>
+  </footer>
+
+  <script>
+    // Toggle modal
+    const bookingBtn = document.getElementById('bookingBtn');
+    const bookingModal = document.getElementById('bookingModal');
+    const closeModal = document.getElementById('closeModal');
+    bookingBtn.addEventListener('click', () => bookingModal.classList.add('active'));
+    closeModal.addEventListener('click', () => bookingModal.classList.remove('active'));
+    bookingModal.addEventListener('click', e => {
+      if (e.target === bookingModal) bookingModal.classList.remove('active');
+    });
+
+    // Handle form submit
+    document.getElementById('bookingForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      bookingModal.classList.remove('active');
+      alert('Terima kasih telah booking Hotel ini');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

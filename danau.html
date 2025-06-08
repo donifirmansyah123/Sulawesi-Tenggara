@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Destinasi – Danau Napabale</title>
+
+  <!-- INTERNAL CSS UNTUK HALAMAN DETAIL WAKATOBI -->
+  <style>
+    /* ===== IMPORT FONT ===== */
+    @import url("https://fonts.googleapis.com/css2?family=Lisu+Bosa:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap");
+
+    /* ===== VARIABEL WARNA ===== */
+    :root {
+      --primary-color: #0a0d14;
+      --primary-color-light: #20242f;
+      --secondary-color: #f49e09;
+      --extra-light: rgba(255, 255, 255, 0.5);
+      --white: #ffffff;
+      --max-width: 1200px;
+      --header-font: "Lisu Bosa", serif;
+    }
+
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html,
+    body {
+      scroll-behavior: smooth;
+      font-family: "Poppins", sans-serif;
+      color: var(--white);
+      background-color: var(--primary-color);
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-bottom: 1px solid var(--extra-light);
+    }
+    .nav__bar {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 1.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .nav__logo a {
+      font-family: var(--header-font);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    .nav__links .link a {
+      color: var(--white);
+      font-weight: 500;
+      padding: 0.75rem 5px;
+      transition: color 0.3s, border-bottom 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .nav__links .link a:hover,
+    .nav__links .link a.active {
+      color: var(--secondary-color);
+      border-bottom: 2px solid var(--secondary-color);
+    }
+    /* Tidak pakai hamburger pada detail */
+    .nav__toggle {
+      display: none !important;
+    }
+    .nav__links .link span {
+      padding: 0.75rem 0;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    /* ===== BAGIAN UTAMA ===== */
+    .section__container {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    .detail__header {
+      font-family: var(--header-font);
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .detail__subheader {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: #ffffff;
+    }
+
+    /* Layout grid: gambar + deskripsi + peta */
+    .detail__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .detail__image-container {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .detail__image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+    .detail__text {
+      color: var(--white);
+    }
+    .detail__text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      font-family: var(--header-font);
+    }
+    .detail__text p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      color: var(--white);
+    }
+    .detail__text ul {
+      list-style: disc inside;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+    .detail__text ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* PETA INTERAKTIF */
+    .map-container {
+      margin-top: 2rem;
+      width: 100%;
+      height: 400px;
+      border: 2px solid var(--extra-light);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer__bar {
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      background-color: var(--primary-color-light);
+      border-top: 1px solid var(--extra-light);
+      margin-top: 2rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .detail__grid {
+        grid-template-columns: 1fr;
+      }
+      .map-container {
+        height: 300px;
+      }
+    }
+    @media (max-width: 600px) {
+      .detail__header {
+        font-size: 2rem;
+      }
+      .detail__subheader {
+        font-size: 0.95rem;
+      }
+      .map-container {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <nav>
+      <div class="nav__bar">
+        <div class="nav__logo"><a href="#">Pariwisata Sulteng</a></div>
+        <ul class="nav__links">
+          <li class="link"><a href="index.html">Home</a></li>
+          <li class="link"><a href="about.html">About</a></li>
+          <li class="link"><a href="destinasi.html">Destinasi</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- BAGIAN DETAIL WAKATOBI -->
+  <section class="section__container">
+    <h2 class="detail__header">Danau Napabale</h2>
+    <p class="detail__subheader">
+      
+    </p>
+
+    <div class="detail__grid">
+      <!-- Foto Wakatobi -->
+      <div class="detail__image-container">
+        <img
+          src="https://images.genpi.co/resize/1080x720-100/uploads/sultra/arsip/normal/2022/02/17/danau-napabale-foto-instagramdanaunapabale-wrj5.webp"
+          alt="Pulau Wakatobi"
+        />
+      </div>
+
+      <!-- Teks Deskripsi -->
+      <div class="detail__text">
+        <h3>Tentang Danau Napabale</h3>
+        <p>
+          Danau Napabale terletak di kaki bukit Desa Lohia, Kabupaten Muna, Sulawesi Tenggara. Keunikan danau ini terletak pada airnya yang asin, karena terhubung langsung dengan laut melalui terowongan alami sepanjang 30 meter dan lebar sekitar 9 meter. Saat air laut surut, terowongan ini dapat dilalui, namun saat pasang, terowongan akan tertutup air laut .
+        </p>
+        <ul>
+          <li>
+            Terowongan Alami: Menghubungkan danau dengan laut, memberikan pengalaman unik bagi pengunjung yang ingin menjelajahinya saat air surut .
+          </li>
+          <li>
+            Aktivitas Air: Pengunjung dapat menikmati bersampan mengelilingi danau, berenang di pinggirannya, snorkeling, atau sekadar duduk santai menikmati keindahan alam sekitar .
+          </li>
+          <li>
+            Pemandangan Sekitar: Dikelilingi oleh pepohonan hijau dan batu karang, menciptakan suasana yang asri dan menenangkan .
+          </li>
+        </ul>
+        <p>
+          Danau Napabale berjarak sekitar 15 km dari Kota Raha, ibu kota Kabupaten Muna. Perjalanan dapat ditempuh dengan kendaraan pribadi atau umum dalam waktu sekitar 30 menit .
+        </p>
+      </div>
+    </div>
+
+    <!-- PETA INTERAKTIF -->
+    <div class="map-container">
+      <!-- Google Maps Embed untuk Pulau Wakatobi -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3276.4412347457824!2d122.75068197400769!3d-4.9047712502855285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2da3c99abfd4e2a9%3A0x9182bb826e2f12dc!2sDanau%20Napabale!5e1!3m2!1sen!2sid!4v1749139266467!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer__bar">
+      © 2025 Pariwisata Sulteng. Semua Hak Dilindungi.
+    </div>
+  </footer>
+</body>
+</html>

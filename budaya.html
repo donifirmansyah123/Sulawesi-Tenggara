@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Budaya Sulawesi Tenggara</title>
+
+  <!-- INTERNAL CSS UNTUK HALAMAN BUDAYA -->
+  <style>
+    /* ===== IMPORT FONT ===== */
+    @import url("https://fonts.googleapis.com/css2?family=Lisu+Bosa:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap");
+
+    /* ===== VARIABEL WARNA ===== */
+    :root {
+      --primary-color: #0a0d14;
+      --primary-color-light: #20242f;
+      --secondary-color: #f49e09;
+      --extra-light: rgba(255, 255, 255, 0.5);
+      --white: #ffffff;
+      --max-width: 1200px;
+      --header-font: "Lisu Bosa", serif;
+    }
+
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      scroll-behavior: smooth;
+      font-family: "Poppins", sans-serif;
+      color: var(--white);
+      background-color: var(--primary-color);
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-bottom: 1px solid var(--extra-light);
+    }
+    .nav__bar {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 1.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .nav__logo a {
+      font-family: var(--header-font);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    .nav__links .link a {
+      color: var(--white);
+      font-weight: 500;
+      padding: 0.75rem 5px;
+      transition: color 0.3s, border-bottom 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .nav__links .link a:hover,
+    .nav__links .link a.active {
+      color: var(--secondary-color);
+      border-bottom: 2px solid var(--secondary-color);
+    }
+    .nav__toggle {
+      display: none !important;
+    }
+    .nav__links .link span {
+      padding: 0.75rem 0;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    /* ===== SECTION BUDAYA ===== */
+    .section__container {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    .section__header {
+      font-family: var(--header-font);
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .section__subheader {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: var(--extra-light);
+    }
+
+    /* Kontainer untuk setiap budaya */
+    .budaya__item {
+      margin-bottom: 4rem;
+    }
+    .budaya__item h3 {
+      font-family: var(--header-font);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    /* Gambar di bawah judul */
+    .budaya__image {
+      width: 60%;
+      margin: 0 auto 1.5rem;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .budaya__image img {
+      width: 100%;
+      display: block;
+    }
+
+    .budaya__item p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0 auto 1.5rem;
+      max-width: 800px;
+      color: var(--white);
+      text-align: justify;
+    }
+
+     .youtube-container {
+    width: 640px;               /* Lebar desktop */
+    height: 360px;              /* Tinggi desktop (rasio 16:9) */
+    margin: 0 auto 1.5rem;      /* Otomatis terpusat secara horizontal */
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 80px;
+  }
+  .youtube-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;                /* Mengisi 100% lebar kontainer */
+    height: 100%;               /* Mengisi 100% tinggi kontainer */
+    border: none;
+  }
+
+    /* ===== FOOTER ===== */
+    .footer__bar {
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      background-color: var(--primary-color-light);
+      border-top: 1px solid var(--extra-light);
+      margin-top: 2rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+    .youtube-container {
+      width: 480px;
+      height: 270px;
+    }
+  }
+    @media (max-width: 600px) {
+    .youtube-container {
+      width: 320px;
+      height: 180px;
+    }
+
+    .budaya__image {
+        width: 400px;
+    }
+  }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav>
+      <div class="nav__bar">
+        <div class="nav__logo"><a href="#">Pariwisata Sulteng</a></div>
+        <ul class="nav__links">
+          <li class="link"><a href="index.html">Home</a></li>
+          <li class="link"><a href="about.html">About</a></li>
+          <li class="link"><a href="jurnal.html">Destinasi</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SECTION BUDAYA -->
+  <section class="section__container">
+    <h2 class="section__header">Tiga Budaya Unggulan Sulawesi Tenggara</h2>
+    <p class="section__subheader">
+      Sulawesi Tenggara kaya akan ragam budaya yang unik dan mempesona. Berikut tiga budaya yang wajib Anda ketahui, lengkap dengan gambar ilustratif dan video penjelasan.
+    </p>
+
+    <!-- Budaya Buton -->
+    <div class="budaya__item">
+      <h3>Budaya Buton</h3>
+      <div class="budaya__image">
+        <img src="https://industry.twic.pics/uploads/berita/detail/4568.jpg" alt="Benteng Keraton Buton" />
+      </div>
+      <p>
+        Budaya Buton berasal dari Kesultanan Buton yang berpusat di Kota Baubau. Salah satu warisan terbesarnya adalah Benteng Keraton Buton, benteng terluas di dunia menurut Guinness World Records. Masyarakat Buton juga dikenal dengan tarian tradisional seperti Tari Liwo dan masakan khas seperti ikan bakar rica-rica. Kehidupan adatnya diperkaya oleh sistem kerajaan dan upacara tradisi yang masih dipelihara hingga kini.
+      </p>
+      <div class="youtube-container">
+        <iframe 
+          src="https://www.youtube.com/embed/99BkoVN_rF8" 
+          allowfullscreen 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Budaya Muna -->
+    <div class="budaya__item">
+      <h3>Budaya Muna</h3>
+      <div class="budaya__image">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEja0iYcJsBi9amnEwYXygUzwfHEwrGquImOk6VSVyVGn1svxinh3QEwbj9_F_if8QVCv3Psh2FFWdK_gBeUfh1vIy0CT6q8dtyIMJfhs-QXKC9-KHSXA-8rXbWrjcpOYDqTgB7jrBhOoD0/s1600/Adu+kuda+000.jpg" alt="Tari Karia Muna" />
+      </div>
+      <p>
+        Masyarakat Muna terkenal dengan tradisi Karia, sebuah upacara kelulusan masa kanak-kanak menjadi dewasa bagi perempuan. Tradisi Kasambu, mandi tujuh bulan kehamilan, juga masih dilestarikan. Motif anyaman khas Muna dan tarian Pereseoan (tari beladiri) menunjukkan kekayaan budaya lokal. Muna juga dikenal sebagai penghasil tenun tradisional berkualitas tinggi.
+      </p>
+      <div class="youtube-container">
+        <iframe 
+          src="https://www.youtube.com/embed/DNdjfM5LFnw" 
+          allowfullscreen 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Budaya Tolaki -->
+    <div class="budaya__item">
+      <h3>Budaya Tolaki</h3>
+      <div class="budaya__image">
+        <img src="https://media.suara.com/pictures/653x366/2014/05/29/shutterstock_132675083.jpg" alt="Tari Lulo Tolaki" />
+      </div>
+      <p>
+        Tolaki merupakan salah satu suku asli Sulawesi Tenggara yang terkenal dengan tarian Lulo, dilakukan setelah panen padi sebagai ungkapan syukur. Upacara adat Kalosara (hukum tertinggi Tolaki) mengatur berbagai aspek kehidupan, termasuk pernikahan adat. Kain tenun Tolaki dikenal dengan motif khas dan warna alami yang dibuat dari pewarna tradisional.
+      </p>
+      <div class="youtube-container">
+        <iframe 
+          src="https://www.youtube.com/embed/snHBF1vbxLw" 
+          allowfullscreen 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer__bar">
+      © 2025 Pariwisata Sulteng. Semua Hak Dilindungi.
+    </div>
+  </footer>
+</body>
+</html>
